@@ -1,22 +1,6 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= simple_form_for @post do |f| %>
+  <%= f.input :blog_id, collection: Blog.all.pluck(:id, :name), label_method: :second, value_method: :first %>
+  <%= f.input :name %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= link_to 'Back', posts_path, class: "btn btn-danger" %>
 <% end %>
