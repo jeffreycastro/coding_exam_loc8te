@@ -1,3 +1,3 @@
 <div class="home-chart py-5">
-  <%= column_chart Hash[Post.group(:blog_id).group_by_day_of_week(:created_at, format: "%a").count.map{|k,v| [[Blog.find(k.first).name, k.last],v]}], title: "Blog posts per day", xtitle: "Day of the Week", ytitle: "Number of Posts", id: "posts-day-chart" %>
+  <%= column_chart Hash[Post.group(:blog_id).group_by_day_of_week(:created_at, format: "%a").count.map{|k,v| [[Blog.find(k.first).name, k.last],v]}], title: "Blog posts per day", xtitle: "Day of the Week", ytitle: "Number of Posts", id: "posts-day-chart", height: "500px" %>
 </div>

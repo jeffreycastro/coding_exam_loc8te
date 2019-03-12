@@ -71,3 +71,6 @@ gem "chartkick"
 gem 'groupdate'
 
 gem 'simple_form'
+
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'

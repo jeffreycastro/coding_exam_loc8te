@@ -3,6 +3,7 @@
   <%= link_to 'New Blog', new_blog_path, class: "btn btn-success" %>
   <hr/>
   <table class="table table-hover">
+    <%= paginate @blogs, theme: 'twitter-bootstrap-4' %>
     <thead>
       <tr class="table-dark">
         <th>Name</th>
@@ -25,4 +26,6 @@
       <% end %>
     </tbody>
   </table>
+  <hr/>
+  <%= paginate @blogs, theme: 'twitter-bootstrap-4' %>
 </div>
