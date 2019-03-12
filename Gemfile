@@ -69,3 +69,5 @@ gem "bootswatch", github: "thomaspark/bootswatch"
 gem "chartkick"
 
 gem 'groupdate'
+
+gem 'simple_form'
