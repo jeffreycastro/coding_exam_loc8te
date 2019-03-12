@@ -61,6 +61,12 @@ class PostsController < ApplicationController
     end
   end
 
+  # GET /posts/posts_per_day.json
+  def posts_per_day
+    blog_posts_per_day = Post.group(:blog_id).group_by_day_of_week(:created_at, format: "%a").count
+    render json: Hash[blog_posts_per_day.map{|k,v| [[Blog.find(k.first).name, k.last], v]}].chart_json
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
